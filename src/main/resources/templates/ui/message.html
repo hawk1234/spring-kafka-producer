@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Kafka Producer</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 */-->
+<!--/*@thymesVar id="msgRequest" type="com.mz.example.api.model.ProduceMessageRequest"*/-->
+<form action="#" th:action="@{/ui/send}" th:object="${msgRequest}" method="post" class="tkp-form">
+    <ul>
+        <li>
+            <input type="text" id="topic" placeholder="Topic" th:field="*{topic}"/>
+        </li>
+        <li>
+            <!-- TODO: only integers -->
+            <input type="number" id="amount" value="1" min="1" step="1" th:field="*{amount}" placeholder="Number of messages to send"/>
+        </li>
+        <li>
+            <select th:field="*{msgType}">
+                <option value="" disabled selected>Message Type</option>
+                <option th:each="msg : ${msgTypes}" th:value="${msg}" th:text="${msg}"></option>
+            </select>
+        </li>
+        <li th:each="customization, itemStat : *{customizationDescriptors}">
+            <input type="text" th:field="*{customizationDescriptors[__${itemStat.index}__].valuePath}" placeholder="Path to value">
+            <select th:field="*{customizationDescriptors[__${itemStat.index}__].valueType}">
+                <option value="" disabled selected>Value Type</option>
+                <option th:each="valType : ${valueTypes}" th:value="${valType}" th:text="${valType}"></option>
+            </select>
+            <select th:field="*{customizationDescriptors[__${itemStat.index}__].generationType}">
+                <option value="" disabled selected>Value Generation Type</option>
+                <option th:each="genType : ${generationTypes}" th:value="${genType}" th:text="${genType}"></option>
+            </select>
+        </li>
+        <li>
+            <textarea id="msg" placeholder="Message" th:field="*{msg}"></textarea>
+        </li>
+        <li>
+            <input type="submit" value="Send Message" />
+        </li>
+    </ul>
+</form>
+</body>
+</html>

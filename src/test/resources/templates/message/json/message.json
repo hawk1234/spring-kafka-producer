@@ -1,0 +1,10 @@
+{
+  "name": "John",
+  "age": 34,
+  "address": {
+    "country": "France",
+    "city": "Paris",
+    "street": "The Avenue",
+    "number": "28a"
+  }
+}

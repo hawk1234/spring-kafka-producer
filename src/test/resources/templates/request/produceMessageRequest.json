@@ -1,0 +1,13 @@
+{
+  "topic":"my-test-topic",
+  "msg":"{\"att\":\"val\"}",
+  "msgType":"JSON",
+  "amount":1,
+  "customizationDescriptors":[
+    {
+      "valueType":"STRING",
+      "generationType":"UNIQUE",
+      "valuePath":"$.att"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Kafka Producer</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<form action="#" th:action="@{/ui/message}" method="get" class="tkp-form">
+    <ul>
+        <li>
+            <label for="customizations">Number of values to replace before message send:</label>
+            <!-- TODO: only integers -->
+            <input type="number" id="customizations" value="0" min="0" step="1" th:name="customizations"/>
+        </li>
+        <li>
+            <input type="submit" value="Specify Message Details" />
+        </li>
+    </ul>
+</form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<person>
+    <address>
+        <city>Paris</city>
+        <country>France</country>
+        <number>28a</number>
+        <street>The Avenue</street>
+    </address>
+    <age>34</age>
+    <name>John</name>
+</person>

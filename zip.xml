@@ -1,0 +1,30 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>zip</id>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/certificate</directory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/doc</directory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/main/config</directory>
+            <outputDirectory>/config</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <files>
+        <file>
+            <source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+        </file>
+        <file>
+            <source>${project.build.directory}/classes/application.properties</source>
+            <outputDirectory>/config</outputDirectory>
+        </file>
+    </files>
+</assembly>
