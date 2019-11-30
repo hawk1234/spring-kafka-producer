@@ -26,5 +26,5 @@ are provided outside application jar for easy configuration. Application may be 
 configured through environment variables eg. this may be used with docker images. 
 
 ```bash
-mvn package
+mvnw package
 ```
